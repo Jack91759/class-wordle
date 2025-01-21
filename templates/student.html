@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Guessing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #121213;
+            color: #d7dadc;
+            margin: 0;
+        }
+        h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .guess-form, .guess-list {
+            margin-bottom: 20px;
+        }
+        .guess-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .guess-form input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            width: 150px;
+            border: 2px solid #3a3a3c;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #3a3a3c;
+            color: #d7dadc;
+        }
+        .guess-form button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #538d4e;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .guess-form button:hover {
+            background-color: #6aaa64;
+        }
+        .guess-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .guess-item {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+        .letter {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+            color: #ffffff;
+            background-color: #3a3a3c; /* Default background for unsubmitted guesses */
+        }
+        .correct {
+            background-color: #6aaa64; /* Green */
+        }
+        .present {
+            background-color: #c9b458; /* Yellow */
+        }
+        .absent {
+            background-color: #787c7e; /* Gray */
+        }
+    </style>
+    <script>
+        // Show a popup if there is a winner
+        window.onload = function() {
+            var winnerName = "{{ winner }}";
+            if (winnerName) {
+                alert("The winner is: " + winnerName + "!");
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Wordle Game - Student Page</h1>
+
+    {% if winner %}
+        <p>The game is over! The winner is: {{ winner }}.</p>
+    {% elif guesses|length >= max_guesses %}
+        <p>You've used all your guesses! Please wait for the next round.</p>
+    {% else %}
+        <form class="guess-form" method="POST">
+            <input type="text" name="guess" placeholder="Enter your guess" maxlength="{{ max_guesses }}" required>
+            <button type="submit">Submit Guess</button>
+        </form>
+    {% endif %}
+
+    <h2>Your Previous Guesses:</h2>
+    <ul class="guess-list">
+        {% for guess, feedback in guesses %}
+            <li class="guess-item">
+                {% for letter, status in feedback %}
+                <div class="letter {{ status }}">{{ letter }}</div>
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+<footer style="position:absolute; bottom:0">
+    <h3>Made By: Jacob Saranen</h3>
+</footer>
+</html>

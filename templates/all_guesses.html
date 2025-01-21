@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5">
+    <title>All Student Guesses</title>
+    <style>
+        parent {
+            display: flex;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .student-section {
+            margin-bottom: 30px;
+            width: 350px; /* Adjusted width */
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .student-section h2 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .guess-grid {
+            display: grid; /* Using grid for each guess */
+            grid-template-columns: repeat(5, 40px); /* Adjust according to word length */
+            grid-gap: 5px; /* Space between cells */
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .color-cell {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .green {
+            background-color: #6aaa64; /* Green for correct letter and position */
+        }
+
+        .yellow {
+            background-color: #c9b458; /* Yellow for correct letter but wrong position */
+        }
+
+        .gray {
+            background-color: #787c7e; /* Gray for incorrect letter */
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* Centered with margin */
+    padding: 80px; /* Further increased padding for more space */
+    border: 1px solid #888;
+    width: 90%; /* Increase width to take more space */
+    max-width: 1200px; /* Further increased max width */
+    border-radius: 10px;
+    text-align: center;
+    font-size: 48px; /* Further increased font size */
+}
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Student Guesses</h1>
+
+    <!-- Loop through each student and display their guesses -->
+    <div id="parent">
+        {% for student, guesses in guesses.items() %}
+            <div style="display: inline-block;" class="student-section">
+                <h2>{{ student }}</h2>
+                <!-- Display guesses as color grids -->
+                {% for guess, feedback in guesses %}
+                    <div class="guess-grid">
+                        {% for letter, status in feedback %}
+                            <div class="color-cell {% if status == 'correct' %}green{% elif status == 'present' %}yellow{% else %}gray{% endif %}"></div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Modal for Winner Announcement -->
+    <div id="winnerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Congratulations!</h2>
+            <p>The winner is: <strong>{{ winner }}</strong></p>
+            <p>The word was: <strong>{{ word }}</strong></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal
+        function showModal() {
+            document.getElementById('winnerModal').style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('winnerModal').style.display = "none";
+        }
+
+        // Show modal if there is a winner
+        window.onload = function() {
+            {% if winner %}
+                showModal();
+            {% else %}
+                console.log("No winner to show."); // Debugging line
+            {% endif %}
+        };
+
+        // Close the modal when the user clicks anywhere outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('winnerModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        };
+    </script>
+</body>
+</html>

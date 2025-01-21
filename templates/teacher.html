@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5">
+    <title>Wordle Game - Teacher Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .summary-table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px 0;
+        }
+
+        .summary-table th, .summary-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .summary-table th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .summary-table td {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wordle Game - Teacher Interface</h1>
+
+    <form method="POST">
+        <label for="word">Set the word to guess:</label>
+        <input type="text" id="word" name="word" maxlength="5" required> <!-- Adjust maxlength according to word length -->
+        <button type="submit">Start Game</button>
+    </form>
+
+    <!-- Button to set a random word -->
+    <button onclick="window.location.href='/random_word'">Set Random Word</button>
+
+    {% if word %}
+        <h2>Current Word: {{ word }}</h2>
+        {% if winner %}
+            <h3>Winner: {{ winner }}</h3>
+        {% else %}
+            <h3>No winner yet.</h3>
+        {% endif %}
+    {% endif %}
+
+    {% if feedback_summary %}
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Greens</th>
+                    <th>Yellows</th>
+                    <th>Grays</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player, summary in feedback_summary.items() %}
+                    <tr>
+                        <td>{{ player }}</td>
+                        <td>{{ summary.greens }}</td>
+                        <td>{{ summary.yellows }}</td>
+                        <td>{{ summary.grays }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+<footer style="position:absolute; bottom:0">
+    <h3>Made By: Jacob Saranen</h3>
+</footer>
+</html>
