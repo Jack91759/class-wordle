@@ -115,7 +115,7 @@ Contributions are welcome!
 
 ## 📜 License
 
-This project is open source. Add your preferred license here (MIT, GPL, etc.).
+This project is open source.
 
 ---
 
