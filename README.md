@@ -1,1 +1,145 @@
-Just run app.py to run the website.
+# Class Wordle 🎓🟩🟨
+
+A customizable Wordle-style game designed for classroom or personal use.
+Guess the hidden word within a limited number of attempts using logic and deduction!
+
+---
+
+## 📌 Features
+
+* Classic Wordle gameplay (color-coded feedback)
+* Custom word lists (great for classes or themed games)
+* Simple and lightweight implementation
+* Easy to modify and extend
+
+---
+
+## 🎮 How to Play
+
+1. Enter a valid word guess.
+2. After each guess, you'll receive feedback:
+
+   * 🟩 **Green**: Correct letter in the correct position
+   * 🟨 **Yellow**: Correct letter in the wrong position
+   * ⬜ **Gray**: Letter is not in the word
+3. Use the clues to guess the correct word within the allowed number of tries.
+
+Wordle-style games rely on iterative guessing and feedback to narrow down possibilities. ([Wordle Github][1])
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Jack91759/class-wordle.git
+cd class-wordle
+```
+
+### 2. Install dependencies
+
+*(Modify this section depending on your project)*
+
+For example (Node.js):
+
+```bash
+npm install
+```
+
+Or (Python):
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 3. Run the project
+
+```bash
+npm start
+```
+
+or
+
+```bash
+python main.py
+```
+
+---
+
+## 🛠️ Configuration
+
+You can customize the game by:
+
+* Editing the word list file
+* Changing word length
+* Adjusting number of guesses
+* Modifying UI or logic
+
+This makes it ideal for:
+
+* Classroom vocabulary practice
+* Themed word games
+* Programming exercises
+
+---
+
+## 📂 Project Structure
+
+```
+class-wordle/
+│── src/            # Game logic
+│── public/         # UI / assets (if applicable)
+│── data/           # Word lists
+│── main.*          # Entry point
+│── README.md
+```
+
+*(Adjust this section to match your actual repo structure.)*
+
+---
+
+## 🧠 How It Works
+
+The game compares each guess to the target word and assigns feedback based on:
+
+* Correct letter + correct position → green
+* Correct letter + wrong position → yellow
+* Not in word → gray
+
+This logic is similar to Mastermind-style deduction games. ([Rdrr.io][2])
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a new branch
+3. Make your changes
+4. Submit a pull request
+
+---
+
+## 📜 License
+
+This project is open source. Add your preferred license here (MIT, GPL, etc.).
+
+---
+
+## 🙌 Acknowledgements
+
+Inspired by the original Wordle game and its many open-source adaptations.
+
+---
+
+## 📧 Contact
+
+Created by **Jack91759**
+Feel free to reach out or open an issue for suggestions or bugs!
+
+[1]: https://github-wordle.pages.dev/?utm_source=chatgpt.com "Wordle Github | Play Wordle Puzzle"
+[2]: https://rdrr.io/github/coolbutuseless/wordle/f/README.md?utm_source=chatgpt.com "coolbutuseless/wordle: README.md"
