@@ -4,6 +4,11 @@ A customizable Wordle-style game designed for classroom or personal use.
 Guess the hidden word within a limited number of attempts using logic and deduction!
 
 ---
+## Give it a Try
+
+You can try my game at ([https://classwordle.pythonanywhere.com/][2]). This is a live demo so it may have other people playing while you check it out.
+
+---
 
 ## 📌 Features
 
@@ -24,7 +29,7 @@ Guess the hidden word within a limited number of attempts using logic and deduct
    * ⬜ **Gray**: Letter is not in the word
 3. Use the clues to guess the correct word within the allowed number of tries.
 
-Wordle-style games rely on iterative guessing and feedback to narrow down possibilities. ([Wordle Github][1])
+Wordle-style games rely on iterative guessing and feedback to narrow down possibilities.
 
 ---
 
@@ -93,7 +98,7 @@ The game compares each guess to the target word and assigns feedback based on:
 * Correct letter + wrong position → yellow
 * Not in word → gray
 
-This logic is similar to Mastermind-style deduction games. ([Rdrr.io][2])
+This logic is similar to Mastermind-style deduction games.
 
 ---
 
@@ -122,7 +127,7 @@ Inspired by the original Wordle game and its many open-source adaptations.
 
 ## 📧 Contact
 
-Created by **Hack37 Studios**
+Created by ([**Hack37 Studios**][1])
 Feel free to reach out or open an issue for suggestions or bugs!
 
 [1]: https://hack37studios.pythonanywhere.com/
