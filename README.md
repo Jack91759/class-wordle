@@ -1,4 +1,4 @@
-# Class Wordle 🎓🟩🟨
+# Class Wordle 🎓
 
 A customizable Wordle-style game designed for classroom or personal use.
 Guess the hidden word within a limited number of attempts using logic and deduction!
@@ -41,14 +41,6 @@ cd class-wordle
 
 *(Modify this section depending on your project)*
 
-For example (Node.js):
-
-```bash
-npm install
-```
-
-Or (Python):
-
 ```bash
 pip install -r requirements.txt
 ```
@@ -58,13 +50,7 @@ pip install -r requirements.txt
 ### 3. Run the project
 
 ```bash
-npm start
-```
-
-or
-
-```bash
-python main.py
+python app.py
 ```
 
 ---
@@ -90,9 +76,7 @@ This makes it ideal for:
 
 ```
 class-wordle/
-│── src/            # Game logic
-│── public/         # UI / assets (if applicable)
-│── data/           # Word lists
+│── templates/           # HTML Files
 │── main.*          # Entry point
 │── README.md
 ```
@@ -138,8 +122,8 @@ Inspired by the original Wordle game and its many open-source adaptations.
 
 ## 📧 Contact
 
-Created by **Jack91759**
+Created by **Hack37 Studios**
 Feel free to reach out or open an issue for suggestions or bugs!
 
-[1]: https://github-wordle.pages.dev/?utm_source=chatgpt.com "Wordle Github | Play Wordle Puzzle"
-[2]: https://rdrr.io/github/coolbutuseless/wordle/f/README.md?utm_source=chatgpt.com "coolbutuseless/wordle: README.md"
+[1]: https://hack37studios.pythonanywhere.com/
+[2]: https://classwordle.pythonanywhere.com/
