@@ -1,4 +1,5 @@
-# Class Wordle 🎓
+# Class Wordle 🎓 (No Further Updates) 
+#V2 at ([https://github.com/Jack91759/class-wordle-V2])
 
 A customizable Wordle-style game designed for classroom or personal use.
 Guess the hidden word within a limited number of attempts using logic and deduction!
@@ -6,7 +7,7 @@ Guess the hidden word within a limited number of attempts using logic and deduct
 ---
 ## Give it a Try
 
-You can try my game at ([https://classwordle.pythonanywhere.com/][2]). This is a live demo so it may have other people playing while you check it out.
+You can try my game at ([https://classwordle.pythonanywhere.com/][2]). This is a live demo of V2 so it may have other people playing while you check it out.
 
 ---
 
