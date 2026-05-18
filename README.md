@@ -1,5 +1,5 @@
 # Class Wordle 🎓 (No Further Updates) 
-#V2 at ([https://github.com/Jack91759/class-wordle-V2])
+V2 at ([https://github.com/Jack91759/class-wordle-V2])
 
 A customizable Wordle-style game designed for classroom or personal use.
 Guess the hidden word within a limited number of attempts using logic and deduction!
